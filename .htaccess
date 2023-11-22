@@ -1,0 +1,24 @@
+# Enable symbolic link following
+Options +FollowSymLinks
+
+# Activate the URL rewriting engine
+RewriteEngine On
+
+# Set the base URL path for rewriting
+RewriteBase /webt-core-server-responses-with-php-in-json-format/
+
+# Check if the requested URL does not map to an existing file
+RewriteCond %{REQUEST_FILENAME} !-f
+
+# Check if the requested URL does not map to an existing directory
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# Rewrite URLs in the format /1 to index.php with the "id" parameter set
+RewriteRule ^(\d+)$ index.php?id=$1 [QSA,L]
+
+#aufruf jetzt möglich mit http://localhost/webt-core-server-responses-with-php-in-json-format/1 etc.
+
+##
+#LoadModule rewrite_module modules/mod_rewrite.so
+#zeile unkommentiert in httpd.conf file um mod_rewrite zu aktivieren
+##
