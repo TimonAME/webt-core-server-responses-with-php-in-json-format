@@ -9,11 +9,23 @@
  * Then git checkout Timon/Momo, git merge main
  */
 
+ /*
+ * PHPUnit:
+ * Composer activated with:      composer init
+ * PHPUnit installed with:       composer require --dev phpunit/phpunit ^10
+ * 
+ */
+
+// autoload with composer
+require 'vendor/autoload.php';
+
 use src\Seeders\Seeder;
 
+/*
 require_once 'src/OST.php';
 require_once 'src/Song.php';
 require_once 'src/Seeders/Seeder.php';
+*/
 
 //für richtiges JSON Format
 header('Content-Type: application/json');

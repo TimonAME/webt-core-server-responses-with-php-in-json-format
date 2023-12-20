@@ -15,6 +15,7 @@ RewriteCond %{REQUEST_FILENAME} !-d
 
 # Rewrite URLs in the format /1 to index.php with the "id" parameter set
 RewriteRule ^(\d+)$ index.php?id=$1 [QSA,L]
+# QSA for Query String Append  und L für Last
 
 #aufruf jetzt möglich mit http://localhost/webt-core-server-responses-with-php-in-json-format/1 etc.
 
