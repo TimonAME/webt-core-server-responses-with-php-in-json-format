@@ -3,27 +3,20 @@ require 'vendor/autoload.php';
 
 use PHPUnit\Framework\TestCase;
 
-use src\Song;
+use \src\Song;
 
 class SongTest extends TestCase
 {
-    public function testGetTitle(): void
+    public function testJsonSerialize(): void
     {
-        $song = new Song("Sample Song", "sample-artist");
-        $this->assertEquals("Sample Song", $song->getTitle());
+        $song = new Song(1, "Sample Song", "sample-artist", 1, 200);
+        $expected = [
+            'id' => 1,
+            'name' => "Sample Song",
+            'artist' => "sample-artist",
+            'trackNumber' => 1,
+            'durationInSeconds' => 200
+        ];
+        $this->assertEquals($expected, $song->jsonSerialize());
     }
-
-    /*
-    public function testGetArtist()
-    {
-        $song = new Song("Sample Song", "sample-artist");
-        $this->assertSame("sample-artist", $song->getArtist());
-    }
-
-    public function testConstructor()
-    {
-        $song = new Song("Sample Song", "sample-artist");
-        $this->assertInstanceOf(Song::class, $song);
-    }
-    */
 }
