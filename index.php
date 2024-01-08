@@ -14,6 +14,10 @@
  * Composer activated with:      composer init
  * PHPUnit installed with:       composer require --dev phpunit/phpunit ^10
  * 
+ * TO RUN TESTS:
+ * vendor/bin/phpunit tests
+ * When run all files in tests folder end with Test.php are run
+ * The tests inside the files have to start with "test"
  */
 
 // autoload with composer

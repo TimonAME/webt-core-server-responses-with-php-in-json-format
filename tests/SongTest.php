@@ -7,9 +7,19 @@ use \src\Song;
 
 class SongTest extends TestCase
 {
+    protected $song;
+    protected function setUp(): void
+    {
+        // This is the fixture setup
+        $this->song = new Song(1, "Sample Song", "sample-artist", 1, 200);
+    }
+    protected function tearDown(): void
+    {
+        // Clean up the fixture
+        $this->song = null;
+    }
     public function testJsonSerialize(): void
     {
-        $song = new Song(1, "Sample Song", "sample-artist", 1, 200);
         $expected = [
             'id' => 1,
             'name' => "Sample Song",
@@ -17,6 +27,6 @@ class SongTest extends TestCase
             'trackNumber' => 1,
             'durationInSeconds' => 200
         ];
-        $this->assertEquals($expected, $song->jsonSerialize());
+        $this->assertEquals($expected, $this->song->jsonSerialize());
     }
 }

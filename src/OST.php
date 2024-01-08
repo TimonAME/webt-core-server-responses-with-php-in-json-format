@@ -34,7 +34,6 @@ class OST implements \JsonSerializable
 
     public function jsonSerialize(): mixed
     {
-        // TODO: Implement jsonSerialize() method.
         return [
             'id' => $this->id,
             'name' => $this->name,
